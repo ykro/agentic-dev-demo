@@ -1,6 +1,6 @@
 # AI-Native Dev — Construí una App con IA y No Escribí (casi) Nada
 
-Dos aplicaciones multimodales completas, construidas con **Google Antigravity** y la **API de Gemini 3.1**, desde la idea hasta el deploy en Cloud Run.
+Dos aplicaciones multimodales completas, construidas con **Google Antigravity** y la **API de Gemini**, desde la idea hasta el deploy en Cloud Run.
 
 > **Este repo es material para aprender dos cosas: trabajar con [Google Antigravity](https://antigravity.google/) y desarrollar con SDD (Spec-Driven Development).** El código de las apps es la *evidencia* del proceso, no el objetivo. La idea central: dejas de escribir código línea por línea y pasas a ser el **arquitecto** que dirige agentes autónomos. No es vibe coding — tú defines la spec, el criterio de éxito y la arquitectura; los agentes implementan.
 
@@ -89,12 +89,12 @@ Fíjate cómo cada decisión de esta spec —SSE como canal primario, polling co
 | Capa | Tecnología |
 |------|-----------|
 | Backend | Python 3.11, FastAPI, uvicorn |
-| AI | Google Gemini 3.1 (`google-genai`) — Vision · Text · Image Generation |
+| AI | Google Gemini (`google-genai`) — 3.8 Flash (texto y visión) + 3.1 Flash Image (imágenes) |
 | Frontend | React 18, TypeScript, Vite, Tailwind CSS |
 | Deploy | Docker → Google Cloud Run |
 
 **Modelos usados:**
-- `gemini-3.1-flash-lite-preview` — texto y visión
+- `gemini-3.8-flash` — texto y visión
 - `gemini-3.1-flash-image-preview` — generación de imágenes
 
 ---
@@ -109,7 +109,7 @@ Sube una foto de cualquier lugar y Gemini genera una **leyenda urbana ilustrada*
 
 ```python
 client = genai.Client(api_key=os.getenv("GOOGLE_GENAI_API_KEY"))
-VISION_MODEL = "gemini-3.1-flash-lite-preview"
+VISION_MODEL = "gemini-3.8-flash"
 IMAGE_MODEL  = "gemini-3.1-flash-image-preview"
 
 # 1. Visión: analiza la foto
@@ -150,7 +150,7 @@ Describe un sueño (escribiéndolo o **por voz**) y obtén un **diario visual** 
 
 ```python
 client = genai.Client(api_key=os.getenv("GOOGLE_GENAI_API_KEY"))
-TEXT_MODEL  = "gemini-3.1-flash-lite-preview"
+TEXT_MODEL  = "gemini-3.8-flash"
 IMAGE_MODEL = "gemini-3.1-flash-image-preview"
 
 # Un solo endpoint orquesta las 3 etapas:

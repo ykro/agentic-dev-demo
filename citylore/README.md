@@ -17,7 +17,7 @@ https://citylore-611681112050.us-central1.run.app
 | Capa | Tecnologia |
 |------|-----------|
 | Backend | Python 3.11, FastAPI, uvicorn |
-| AI | Google Gemini 3.1 (`google-genai`) — Vision + Image Generation |
+| AI | Google Gemini (`google-genai`) — 3.8 Flash (visión) + 3.1 Flash Image (imágenes) |
 | Frontend | React 18, TypeScript, Vite, Tailwind CSS |
 | Deploy | Docker → Google Cloud Run |
 

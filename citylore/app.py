@@ -26,7 +26,7 @@ from google.genai import types
 
 # Initialize client
 client = genai.Client(api_key=os.getenv("GOOGLE_GENAI_API_KEY"))
-VISION_MODEL = "gemini-3.1-flash-lite-preview"
+VISION_MODEL = "gemini-3.8-flash"
 IMAGE_MODEL = "gemini-3.1-flash-image-preview"
 
 app = FastAPI(title="CityLore")
